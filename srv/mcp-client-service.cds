@@ -1,5 +1,5 @@
 service MCPToolClientService {
-  function callMCPTool(logs: String) returns Array of AnalysisResult;
+  //function callMCPTool(logs: String) returns Array of AnalysisResult;
 }
 
 type AnalysisResult {

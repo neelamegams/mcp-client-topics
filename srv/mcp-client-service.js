@@ -11,14 +11,18 @@ const credentials = {
 
 async function analyzeWithAICore(errorMessage) {
 
-   if (!AzureOpenAiChatClient) {
+    if (!AzureOpenAiChatClient) {
         ({ AzureOpenAiChatClient } = await import("@sap-ai-sdk/foundation-models"));
     }
+
     const chatClient = new AzureOpenAiChatClient(
-      { modelName: 'gpt-4o-mini', resourceGroup: credentials.resourceGroup, deploymentId: 'dab5e8bc05fc825c' }
+      { modelName: 'gpt-4o-mini', 
+        resourceGroup: credentials.resourceGroup, 
+        deploymentId: 'dab5e8bc05fc825c' 
+      }
     );
 
-     const response = await chatClient.run({
+    const response = await chatClient.run({
         messages: [
           {
             role: "user",
@@ -30,9 +34,23 @@ async function analyzeWithAICore(errorMessage) {
     return response.getContent();
 }
 
-module.exports = cds.service.impl(async function () {
-  this.on("callMCPTool", async (req) => {
-          const error = "Error: Failed to deploy the application due to missing environment variables.";
+// module.exports = cds.service.impl(async function () {
+//   this.on("callMCPTool", async (req) => {
+//           const error = "Error: Failed to deploy the application due to missing environment variables.";
+//             try {
+//                 // Ensure AzureOpenAiChatClient is loaded for each CLI run
+//                 const result = await analyzeWithAICore(error);
+//                 console.log(`Error: ${error}\nAI Core Analysis: ${result}\n`);
+//             } catch (err) {
+//                 console.error(`Error analyzing: ${error}\n${err.message}\n`);
+//             }
+//   });
+// });
+
+
+if (require.main === module) {
+    (async () => {
+            const error = "Error: Failed to deploy the application due to missing environment variables.";
             try {
                 // Ensure AzureOpenAiChatClient is loaded for each CLI run
                 const result = await analyzeWithAICore(error);
@@ -40,5 +58,5 @@ module.exports = cds.service.impl(async function () {
             } catch (err) {
                 console.error(`Error analyzing: ${error}\n${err.message}\n`);
             }
-  });
-});
+    })();
+}
