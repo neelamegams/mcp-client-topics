@@ -1,0 +1,19 @@
+{
+  "requires": {
+    "[hybrid]": {
+      "custom-service:default_aicore": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10.hana.ondemand.com",
+          "org": "Developer Advocates Free Tier_buildappse17343ce-51cb-f7bb-71ff-010ddb224205",
+          "space": "dev",
+          "instance": "default_aicore",
+          "key": "default_aicore-key"
+        },
+        "vcap": {
+          "name": "custom-service:default_aicore"
+        }
+      }
+    }
+  }
+}
