@@ -1,10 +1,11 @@
 ## MCP Client
 
-- This tool calls the MCP server
+- This tool calls the MCP server, server should be running at http://localhost:4000/mcp
 - The .env file and .aicore-config.json setup does not work for SAP Cloud AI SDK(JS)
 - Use this tool in hybrid mode for testing, ie run these commands
   - cf l -a https://api.cf.us10.hana.ondemand.com
   - cds bind -a default_aicore
+
 
 ## Start the client
 `cds watch --profile hybrid`
