@@ -20,3 +20,4 @@ https://github.com/gavdilabs/cap-mcp-plugin
 https://medium.com/@simonvlaursen/introducing-cap-mcp-transform-your-sap-applications-into-ai-ready-systems-410a01fda5aa
 https://modelcontextprotocol.io/quickstart/client
 https://pages.github.tools.sap/btp-ai/mcp-plugin/docs/how-to-run
+https://github.com/modelcontextprotocol/quickstart-resources
