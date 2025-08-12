@@ -137,11 +137,11 @@ import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/
     console.log('showing responses for topics that talk about Agents');
     console.log('Assistant:', response.messages.at(-1)?.content);
 
-    // response = await app.invoke(
-    //   new Command({ resume: 'Great! Looks perfect' }),
-    //   config
-    // );
-    // console.log('Assistant:', response.messages.at(-1)?.content);
+    response = await app.invoke(
+      new Command({ resume: 'Great! Looks perfect' }),
+      config
+    );
+    console.log('Assistant:', response.messages.at(-1)?.content);
   } catch (error) {
     console.error('Error:', error);
   }
